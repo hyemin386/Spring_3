@@ -26,9 +26,8 @@ public class MemberDAO {
 	
 	//memberJoin - 데이터를 받아서 DB에 insert하는 메서드 
 	public int memberJoin (MemberDTO memberDTO) throws Exception {
-	
+	    int result = sqlSession.insert(NAMESPACE+".memberJoin", memberDTO);
 		return result;
-	
 	}
 	
 	//login - id pw를 받아서 조회 
