@@ -49,7 +49,11 @@ public class MemberDAOTest extends MyAbstractTest {
 	
 	@Test
 	public void memberLoginTest() throws Exception {
-		MemberDTO memberDTO = memberDAO.memberLogin(null);
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setId("iu");
+		memberDTO.setPw("pw1");
+		
+		memberDTO = memberDAO.memberLogin(memberDTO);
 		assertNotNull(memberDTO);
 	}
 

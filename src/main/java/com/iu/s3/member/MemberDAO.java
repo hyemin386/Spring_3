@@ -33,7 +33,6 @@ public class MemberDAO {
 	
 	//login - id pw를 받아서 조회 
 	public MemberDTO memberLogin(MemberDTO memberDTO) throws Exception {
-		memberDTO = sqlSession.selectOne(NAMESPACE+".memberLogin", memberDTO);	
-		return memberDTO;
+		return sqlSession.selectOne(NAMESPACE+".memberLogin", memberDTO);	
 	}
 }
