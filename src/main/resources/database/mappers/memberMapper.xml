@@ -9,4 +9,11 @@
 		insert into member values(#{id},#{pw},#{name},#{phone},#{email})
 	</insert>
 
+	<select id="memberLogin" parameterType="com.iu.s3.member.MemberDTO" resultType="com.iu.s3.member.MemberDTO">
+		select * from member where id=#{id} and pw=#{pw}
+	</select>
+	
+	<update id="memberUpdate" parameterType="com.iu.s3.member.MemberDTO">
+		update member set pw=#{pw}, name=#{name}, phone=#{phone}, email=#{email} where id=#{id}
+	</update>
 </mapper>
