@@ -38,13 +38,19 @@ public class MemberDAOTest extends MyAbstractTest {
 		assertEquals(1, result);
 	}
 	
-	@Test
+	//@Test
 	public void memberDeleteTest() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("test1");
 		int result = memberDAO.memberDelete(memberDTO);
 		
 		assertEquals(1, result);
+	}
+	
+	@Test
+	public void memberLoginTest() throws Exception {
+		MemberDTO memberDTO = memberDAO.memberLogin(null);
+		assertNotNull(memberDTO);
 	}
 
 }
