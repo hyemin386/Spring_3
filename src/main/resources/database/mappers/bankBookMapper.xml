@@ -5,11 +5,11 @@
 
 <!-- namespace 중복안됨 -->
 <mapper namespace="com.iu.s3.bankBook.BankBookDAO">
-	<insert id="setWrite" parameterType="com.iu.s3.bankBook.BankBookDTO">
+	<insert id="setWrite" parameterType="BankBookDTO">
 		insert into bankbook values(bank_seq.nextval,#{bookName},#{bookRate},#{bookSale})
 	</insert>
 	
-	<select id="getSelect" parameterType="com.iu.s3.bankBook.BankBookDTO" resultType="com.iu.s3.bankBook.BankBookDTO">
+	<select id="getSelect" parameterType="BankBookDTO" resultType="BankBookDTO">
 		select * from bankbook where bookNumber=#{bookNumber}
 	</select>
 	
