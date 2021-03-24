@@ -32,6 +32,7 @@ public class BankBookDAO {
 
 	public BankBookDTO getSelect(BankBookDTO bankBookDTO) throws Exception {
 		bankBookDTO = sqlSession.selectOne(NAMESPACE+".getSelect", bankBookDTO);
+		System.out.println(bankBookDTO.getBookNumber());
 		return bankBookDTO;
 	}	
 
