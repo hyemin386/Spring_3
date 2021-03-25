@@ -19,5 +19,11 @@
 	<a href="./bankBookUpdate?bookNumber=${dto.bookNumber}">Update</a>
 	</c:if>
 	</c:if>
+	
+	<!--  
+	<c:if test="${member.id eq 'admin'}">
+	<a href="./bankBookDelete?bookNumber=${dto.bookNumber}">Delete</a>
+	<a href="./bankBookUpdate?bookNumber=${dto.bookNumber}">Update</a>
+	-->
 </body>
 </html>
