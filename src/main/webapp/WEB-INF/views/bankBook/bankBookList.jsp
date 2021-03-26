@@ -5,9 +5,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<c:import url="../template/bootStrap.jsp"></c:import>
+
+<title>BankBook</title>
 </head>
 <body>
+<c:import url="../template/header.jsp"></c:import>
 	<h1>BankBook List</h1>
 
 	<table>
