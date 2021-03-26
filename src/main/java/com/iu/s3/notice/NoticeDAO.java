@@ -16,4 +16,8 @@ public class NoticeDAO {
 	public List<NoticeDTO> getList() throws Exception {
 		return sqlSession.selectList(NAMESPACE+".getList");
 	}
+	
+	public NoticeDTO getSelect(NoticeDTO noticeDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+".getSelect", noticeDTO);
+	}
 }

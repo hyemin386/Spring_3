@@ -9,4 +9,7 @@
 		select * from notice 
 	</select>
 	
+	<select id="getSelect" parameterType="NoticeDTO" resultType="NoticeDTO">
+		select * from notice where num=#{num}
+	</select>
 </mapper>

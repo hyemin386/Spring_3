@@ -15,9 +15,15 @@ public class NoticeDAOTest extends MyAbstractTest {
 	@Autowired
 	private NoticeDAO noticeDAO;
 	
-	@Test
+	//@Test
 	public void getListTets() throws Exception {
 		List<NoticeDTO> ar = noticeDAO.getList();
 		assertNotEquals(0, ar.size());
+	}
+	
+	@Test
+	public void getSelectTest() throws Exception {
+		NoticeDTO noticeDTO = noticeDAO.getSelect(null);
+		assertNotNull(noticeDTO);
 	}
 }

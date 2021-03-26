@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
 @Service
 public class NoticeService {
@@ -13,5 +14,9 @@ public class NoticeService {
 	
 	public List<NoticeDTO> getList() throws Exception {
 		return noticeDAO.getList();
+	}
+	
+	public NoticeDTO getSelect(NoticeDTO noticeDTO) throws Exception {
+		return noticeDAO.getSelect(noticeDTO);
 	}
 }
