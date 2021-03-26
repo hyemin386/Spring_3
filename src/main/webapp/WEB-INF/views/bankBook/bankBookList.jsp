@@ -14,10 +14,13 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-	<h1>BankBook List</h1>
 
-	<table>
-		<thead>
+<div class="container">
+
+	<h2>BankBook List</h2>
+
+	<table class="table">
+		<thead class="thead-dark">
 			<tr>
 				<th>Name</th>
 				<th>Rate</th>
@@ -36,6 +39,6 @@
 		</tbody>
 
 	</table>
-
+</div>
 </body>
 </html>
