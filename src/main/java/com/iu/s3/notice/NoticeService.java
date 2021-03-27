@@ -19,4 +19,8 @@ public class NoticeService {
 	public NoticeDTO getSelect(NoticeDTO noticeDTO) throws Exception {
 		return noticeDAO.getSelect(noticeDTO);
 	}
+	
+	public int setDelete(NoticeDTO noticeDTO) throws Exception {
+		return noticeDAO.setDelete(noticeDTO);
+	}
 }

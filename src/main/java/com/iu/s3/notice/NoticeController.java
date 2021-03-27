@@ -2,6 +2,8 @@ package com.iu.s3.notice;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,5 +30,11 @@ public class NoticeController {
 		modelAndView.addObject("dto",noticeDTO);
 		modelAndView.setViewName("notice/noticeSelect");
 		return modelAndView;
+	}
+	
+	@RequestMapping("noticeDelete")
+	public String setDelete(NoticeDTO noticeDTO) throws Exception {
+		int result = noticeService.setDelete(noticeDTO);
+		return "redirect:./noticeList";
 	}
 }

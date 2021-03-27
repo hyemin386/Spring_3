@@ -20,4 +20,8 @@ public class NoticeDAO {
 	public NoticeDTO getSelect(NoticeDTO noticeDTO) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+".getSelect", noticeDTO);
 	}
+	
+	public int setDelete(NoticeDTO noticeDTO) throws Exception {
+		return sqlSession.delete(NAMESPACE+".setDelete", noticeDTO);
+	}
 }

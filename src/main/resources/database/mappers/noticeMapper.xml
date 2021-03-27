@@ -12,4 +12,9 @@
 	<select id="getSelect" parameterType="NoticeDTO" resultType="NoticeDTO">
 		select * from notice where num=#{num}
 	</select>
+	
+	<delete id="setDelete" parameterType="NoticeDTO">
+		delete from notice where num=#{num}
+	</delete>
+	
 </mapper>
