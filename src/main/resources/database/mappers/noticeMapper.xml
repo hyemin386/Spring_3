@@ -21,4 +21,8 @@
 		update notice set title=#{title}, name=#{name}, contents=#{contents}, regdate=#{regdate}, hit=#{hit}
 	</update>
 	
+	<insert id="setInsert" parameterType="NoticeDTO">
+		insert into notice values(notice_seq.nextval,#{title}, #{name}, #{contents}, sysdate, #{hit})
+	</insert>
+	
 </mapper>

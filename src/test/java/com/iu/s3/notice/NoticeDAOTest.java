@@ -2,6 +2,8 @@ package com.iu.s3.notice;
 
 import static org.junit.Assert.*;
 
+import java.sql.Date;
+import java.util.Calendar;
 import java.util.List;
 
 import org.junit.Test;
@@ -36,7 +38,7 @@ public class NoticeDAOTest extends MyAbstractTest {
 		assertEquals(1, result);
 	}
 	
-	@Test
+	//@Test
 	public void setUpdateTest() throws Exception {
 		NoticeDTO noticeDTO = new NoticeDTO();
 		noticeDTO.setNum(1);
@@ -45,6 +47,18 @@ public class NoticeDAOTest extends MyAbstractTest {
 		noticeDTO.setTitle("Hello");
 		
 		int result = noticeDAO.setUpdate(noticeDTO);
+		assertEquals(1, result);
+	}
+	
+	@Test
+	public void setInsertTest() throws Exception {
+		NoticeDTO noticeDTO = new NoticeDTO();
+		noticeDTO.setTitle("TEST");
+		noticeDTO.setName("id2");
+		noticeDTO.setContents("HELLO");
+		noticeDTO.setRegdate(Date.valueOf("2021-03-26"));
+		noticeDTO.setHit(4);
+		int result = noticeDAO.setInsert(noticeDTO);
 		assertEquals(1, result);
 	}
 }

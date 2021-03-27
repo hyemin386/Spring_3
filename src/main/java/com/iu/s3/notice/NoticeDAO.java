@@ -28,4 +28,8 @@ public class NoticeDAO {
 	public int setUpdate(NoticeDTO noticeDTO) throws Exception {
 		return sqlSession.update(NAMESPACE+".setUpdate", noticeDTO);
 	}
+	
+	public int setInsert(NoticeDTO noticeDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE+".setInsert", noticeDTO);
+	}
 }

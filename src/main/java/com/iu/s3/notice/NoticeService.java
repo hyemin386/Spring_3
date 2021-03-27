@@ -27,4 +27,8 @@ public class NoticeService {
 	public int setUpdate(NoticeDTO noticeDTO) throws Exception {
 		return noticeDAO.setUpdate(noticeDTO);
 	}
+	
+	public int setInsert(NoticeDTO noticeDTO) throws Exception {
+		return noticeDAO.setInsert(noticeDTO);
+	}
 }

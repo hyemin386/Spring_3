@@ -40,6 +40,12 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	
+	<c:catch>
+			<c:if test="${member.id eq 'admin'}">
+				<a href="./noticeInsert">글 작성</a>
+			</c:if>
+		</c:catch>
 	</div>
 	
 </body>

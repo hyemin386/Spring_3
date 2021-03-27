@@ -50,4 +50,15 @@ public class NoticeController {
 		int result = noticeService.setUpdate(noticeDTO);
 		return "redirect:./noticeList";
 	}
+	
+	@RequestMapping("noticeInsert")
+	public void setInsert() throws Exception {
+		
+	}
+	
+	@RequestMapping(value = "noticeInsert" , method = RequestMethod.POST)
+	public String setInsert(NoticeDTO noticeDTO) throws Exception {
+		int result = noticeService.setInsert(noticeDTO);
+		return "redirect:./noticeList";
+	}
 }
