@@ -17,4 +17,8 @@
 		delete from notice where num=#{num}
 	</delete>
 	
+	<update id="setUpdate" parameterType="NoticeDTO">
+		update notice set title=#{title}, name=#{name}, contents=#{contents}, regdate=#{regdate}, hit=#{hit}
+	</update>
+	
 </mapper>
