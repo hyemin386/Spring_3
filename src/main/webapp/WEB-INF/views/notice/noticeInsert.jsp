@@ -16,23 +16,23 @@
 		<form action="./noticeInsert" method="post">
 			<div class="form-group">
 				<label for="title">TITLE</label> 
-				<input type="text" class="form-control" id="title" name="title" value="${dto.title}">
+				<input type="text" class="form-control" id="title" name="title">
 			</div>
 			<div class="form-group">
 				<label for="name">NAME</label> 
-				<input type="text" class="form-control" id="name" name="name" value="${dto.name}">
+				<input type="text" class="form-control" id="name" name="name" >
 			</div>
 			<div class="form-group">
 				<label for="contents">CONTENTS</label> 
-				<input type="text" class="form-control" id="contents" name="contents" value="${dto.contents}">
+				<input type="text" class="form-control" id="contents" name="contents" >
 			</div>
 			<div class="form-group">
 				<label for="regdate">DATE</label> 
-				<input type="date" class="form-control" id="regdate" name="regdate" value="${dto.regdate}">
+				<input type="date" class="form-control" id="regdate" name="regdate" >
 			</div>
 			<div class="form-group">
 				<label for="hit">HIT</label> 
-				<input type="text" class="form-control" id="hit" name="hit" value="${dto.hit}">
+				<input type="text" class="form-control" id="hit" name="hit">
 			</div>
 			<button type="submit" class="btn btn-primary">Insert</button>
 		</form>

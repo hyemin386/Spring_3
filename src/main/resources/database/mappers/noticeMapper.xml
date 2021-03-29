@@ -2,27 +2,39 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    
+
 <mapper namespace="com.iu.s3.notice.NoticeDAO">
 
-	<select id="getList" parameterType="NoticeDTO" resultType="NoticeDTO">
-		select * from notice 
+	<select id="getTotalCount" resultType="Long">
+		select count(num) from notice
 	</select>
-	
-	<select id="getSelect" parameterType="NoticeDTO" resultType="NoticeDTO">
+
+	<select id="getList" resultType="NoticeDTO" parameterType="Pager">
+		select * from
+		(select rownum R, N.* from
+		(select * from notice order by num desc) N)
+		where R between #{startRow} and #{lastRow}
+	</select>
+
+	<select id="getSelect" parameterType="NoticeDTO"
+		resultType="NoticeDTO">
 		select * from notice where num=#{num}
 	</select>
-	
+
 	<delete id="setDelete" parameterType="NoticeDTO">
-		delete from notice where num=#{num}
+		delete from notice where
+		num=#{num}
 	</delete>
-	
+
 	<update id="setUpdate" parameterType="NoticeDTO">
-		update notice set title=#{title}, name=#{name}, contents=#{contents}, regdate=#{regdate}, hit=#{hit}
+		update notice set
+		title=#{title}, name=#{name}, contents=#{contents},
+		regdate=#{regdate}, hit=#{hit}
 	</update>
-	
+
 	<insert id="setInsert" parameterType="NoticeDTO">
-		insert into notice values(notice_seq.nextval,#{title}, #{name}, #{contents}, sysdate, #{hit})
+		insert into notice
+		values(notice_seq.nextval,#{title}, #{name}, #{contents}, sysdate, 0)
 	</insert>
-	
+
 </mapper>
