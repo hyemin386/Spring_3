@@ -15,25 +15,19 @@
 	<h2>Notice Update</h2>
 		<form action="./noticeInsert" method="post">
 			<div class="form-group">
+				<label for="name">NAME</label> 
+				<input type="text" readonly="readonly" value="${member.id}" class="form-control" id="name" name="name" >
+			</div>
+			<div class="form-group">
 				<label for="title">TITLE</label> 
 				<input type="text" class="form-control" id="title" name="title">
 			</div>
 			<div class="form-group">
-				<label for="name">NAME</label> 
-				<input type="text" class="form-control" id="name" name="name" >
-			</div>
-			<div class="form-group">
 				<label for="contents">CONTENTS</label> 
-				<input type="text" class="form-control" id="contents" name="contents" >
+				 <textarea class="form-control" rows="5" id="contents" name="contents"></textarea>
+	
 			</div>
-			<div class="form-group">
-				<label for="regdate">DATE</label> 
-				<input type="date" class="form-control" id="regdate" name="regdate" >
-			</div>
-			<div class="form-group">
-				<label for="hit">HIT</label> 
-				<input type="text" class="form-control" id="hit" name="hit">
-			</div>
+		
 			<button type="submit" class="btn btn-primary">Insert</button>
 		</form>
 	</div>

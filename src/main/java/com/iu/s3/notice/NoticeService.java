@@ -24,7 +24,7 @@ public class NoticeService {
 		pager.setLastRow(lastRow);
 		
 		//1. totalCount
-		long totalCount=noticeDAO.getTotalCount(); //총 글 수 가져오기
+		long totalCount=noticeDAO.getTotalCount(pager); //총 글 수 가져오기
 		//2. totalPage
 		long totalPage = totalCount/perPage;
 		if(totalCount%perPage != 0) {
@@ -46,6 +46,20 @@ public class NoticeService {
 		//5. startNum, lasgNum
 		long startNum = (curBlock-1)*perBlock+1;
 		long lastNum = curBlock*perBlock;
+		
+		//6. 현재블록이(curBlock) 마지막 블록(totalBlock)일 때
+		if(curBlock == totalBlock) {
+			lastNum = totalPage;
+		}
+		
+		//7. 이전, 다음 블록의 존재여부 판단
+		if(curBlock != 1) { //현재블록이 1과같지 않다면
+			pager.setPre(true);
+		}
+		
+		if(curBlock != totalBlock) {
+			pager.setNext(true);
+		}
 		
 		pager.setStartNum(startNum);
 		pager.setLastNum(lastNum);

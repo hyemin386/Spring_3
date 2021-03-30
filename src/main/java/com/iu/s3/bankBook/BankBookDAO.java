@@ -11,6 +11,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.iu.s3.util.Pager;
+
 @Repository
 public class BankBookDAO {
 
@@ -28,6 +30,10 @@ public class BankBookDAO {
 	
 	public List<BankBookDTO> getList () throws Exception {
 		return sqlSession.selectList(NAMESPACE+".getList");
+	}
+	
+	public Long getTotalCount() throws Exception {
+		return sqlSession.selectOne(NAMESPACE, ".getTotalCount");
 	}
 
 	public BankBookDTO getSelect(BankBookDTO bankBookDTO) throws Exception {

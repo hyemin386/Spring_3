@@ -9,6 +9,42 @@ public class Pager {
 	private long startNum;
 	private long lastNum;
 	
+	private boolean pre; //목록의 이전 블록이 있으면 true 없으면 false
+	private boolean next; //목록의 다음 블록이 있으면 true 없으면 false
+	
+	private String kind; //검색할 컬럼명을 담을 변수
+	private String search; //검색어를 담을 변수
+	
+	public String getKind() {
+		return kind;
+	}
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
+	public String getSearch() {
+		if(this.search == null) {
+			this.search="";
+		}
+		return search;
+	}
+	public void setSearch(String search) {
+		if(search == null) {
+			search="";
+		}
+		this.search = search;
+	}
+	public boolean isPre() {
+		return pre;
+	}
+	public void setPre(boolean pre) {
+		this.pre = pre;
+	}
+	public boolean isNext() {
+		return next;
+	}
+	public void setNext(boolean next) {
+		this.next = next;
+	}
 	public long getStartNum() {
 		return startNum;
 	}

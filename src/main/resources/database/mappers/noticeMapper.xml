@@ -5,14 +5,49 @@
 
 <mapper namespace="com.iu.s3.notice.NoticeDAO">
 
-	<select id="getTotalCount" resultType="Long">
+	<select id="getTotalCount" resultType="Long" parameterType="Pager">
 		select count(num) from notice
+		where 
+		<choose>
+			<when test="kind == 'Name'">
+				name
+			</when>
+			<when test="kind == 'Contents'">
+				contents
+			</when>
+			
+			<otherwise>
+				title
+			</otherwise>
+		</choose>
+		like '%'||#{search}||'%' and num >0
 	</select>
 
 	<select id="getList" resultType="NoticeDTO" parameterType="Pager">
-		select * from
-		(select rownum R, N.* from
-		(select * from notice order by num desc) N)
+		select * from (select rownum R, N.* from
+		(select * from notice where 
+		<choose>
+			<when test="kind == 'Name'">
+				name
+			</when>
+			<when test="kind == 'Contents'">
+				contents
+			</when>
+			<otherwise>
+				title
+			</otherwise>
+		</choose>
+		<!-- 두번째방법 <if test="kind == 'name'">
+			name
+		</if>
+		<if test="kind == 'contents'">
+			contents
+		</if>
+		<if test="kind == 'title'">
+			title
+		</if>  -->
+		     <!-- % + search + % -> ||가 + 역할 -->
+		 like '%' || #{search} || '%' and num>0 order by num desc) N)
 		where R between #{startRow} and #{lastRow}
 	</select>
 

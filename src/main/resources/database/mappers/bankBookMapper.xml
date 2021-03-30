@@ -6,22 +6,35 @@
 <!-- namespace 중복안됨 -->
 <mapper namespace="com.iu.s3.bankBook.BankBookDAO">
 	<insert id="setWrite" parameterType="BankBookDTO">
-		insert into bankbook values(bank_seq.nextval,#{bookName},#{bookRate},#{bookSale})
+		insert into bankbook
+		values(bank_seq.nextval,#{bookName},#{bookRate},#{bookSale})
 	</insert>
-	
-	<select id="getSelect" parameterType="BankBookDTO" resultType="BankBookDTO">
+
+	<select id="getSelect" parameterType="BankBookDTO"
+		resultType="BankBookDTO">
 		select * from bankbook where bookNumber=#{bookNumber}
 	</select>
-	
-	<select id="getList" resultType="com.iu.s3.bankBook.BankBookDTO">
-		select * from bankbook order by bookNumber desc
+
+	<select id="getTotalCount" resultType="Long">
+		select count(booknumber) from bankbook
 	</select>
-	
-	<delete id="setDelete" parameterType="com.iu.s3.bankBook.BankBookDTO">
+
+	<select id="getList" resultType="BankBookDTO">
+		select * from
+		(select rownum R, N.* from
+		(select * from bankBook where bookNumber>0 order by bookNumber desc) N)
+		where R between #{startRow} and #{lastRow}
+	</select>
+
+	<delete id="setDelete"
+		parameterType="BankBookDTO">
 		delete bankbook where booknumber = #{bookNumber}
 	</delete>
-	
-	<update id="setUpdate" parameterType="com.iu.s3.bankBook.BankBookDTO">
-		update bankbook set bookName=#{bookName}, bookRate=#{bookRate}, bookSale=#{bookSale} where bookNumber= #{bookNumber}
+
+	<update id="setUpdate"
+		parameterType="BankBookDTO">
+		update bankbook set bookName=#{bookName},
+		bookRate=#{bookRate}, bookSale=#{bookSale} where bookNumber=
+		#{bookNumber}
 	</update>
 </mapper>

@@ -6,13 +6,15 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.iu.s3.util.Pager;
+
 @Service
 public class BankBookService {
 	
 	@Autowired
 	private BankBookDAO bankBookDAO;
 	
-	public List<BankBookDTO> getList() throws Exception {
+	public List<BankBookDTO> getList()throws Exception{
 		return bankBookDAO.getList();
 	}
 	
