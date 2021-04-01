@@ -21,7 +21,7 @@
 <c:import url="../template/header.jsp"></c:import>
 	<div class="container">
 	<h2>Member Join Page</h2>
-		<form action="./memberJoin" method="post">
+		<form id="frm" action="./memberJoin" method="post">
 			<div class="form-group">
 				<label for="id">ID</label> 
 				<input type="text" class="form-control" id="id" name="id" aria-describedby="idHelp"> 
@@ -48,8 +48,7 @@
 				<label for="email">Email</label> 
 				<input type="text" class="form-control" id="email" name="email">
 			</div>
-			<button type="submit" class="btn btn-primary">Submit</button>
-			<input type="button" value="JOIN" class="btn btn-primary" onclick="memberJoin()">
+		<input type="button" id ="btn" value="JOIN" class="btn btn-primary">
 		</form>
 	</div>
 <script type="text/javascript" src="../resources/js/memberJoin.js"></script>	

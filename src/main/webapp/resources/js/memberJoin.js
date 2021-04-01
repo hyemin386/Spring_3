@@ -37,3 +37,29 @@ pw2.addEventListener("blur", function() {
 		pw2.value="";
 	}
 });
+
+pw.addEventListener("change",function() {
+	alert("change");
+});
+
+
+/*btn클릭시 id입력칸으로 커서 자동이동
+let btn = document.getElementById("btn");
+btn.addEventListener("click", function() {
+	id.focus();
+});*/
+
+//btn클릭시 join
+let btn = document.getElementById("btn");
+btn.addEventListener("click",function(){
+	//조건 만족하면 submit 강제실행
+	let frm = document.getElementById("frm");
+	frm.submit();
+});
+
+let check = document.getElementById("check");
+check.addEventListener("click", function(){
+	return false;
+});
+
+
