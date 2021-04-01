@@ -28,9 +28,10 @@
 	
 			</div>
 		
-			<button type="submit" class="btn btn-primary">Insert</button>
+			<button type="submit" class="btn btn-primary" onclick="insertCheck()">Insert</button>
+			<input type="button" value="WRITE" class="btn btn-primary" onclick="insertCheck()">
 		</form>
 	</div>
-	
+<script type="text/javascript" src="../resources/js/insertCheck.js"></script>	
 </body>
 </html>

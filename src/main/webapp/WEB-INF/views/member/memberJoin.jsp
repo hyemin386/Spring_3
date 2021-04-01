@@ -24,6 +24,10 @@
 				<input type="password" class="form-control" id="pw" name="pw">
 			</div>
 			<div class="form-group">
+				<label for="pw">Password</label> 
+				<input type="password" class="form-control" id="pw2" name="pw">
+			</div>
+			<div class="form-group">
 				<label for="name">Name</label> 
 				<input type="text" class="form-control" id="name" name="name">
 			</div>
@@ -36,7 +40,9 @@
 				<input type="text" class="form-control" id="email" name="email">
 			</div>
 			<button type="submit" class="btn btn-primary">Submit</button>
+			<input type="button" value="JOIN" class="btn btn-primary" onclick="memberJoin()">
 		</form>
 	</div>
+<script type="text/javascript" src="../resources/js/memberJoin.js"></script>
 </body>
 </html>
