@@ -7,7 +7,7 @@ let title = document.getElementById("title");
 let btn = document.getElementById("btn");
 
 btn.addEventListener("click", function(){
-	let check1 = name.value== 'admin';
+	let check1 = name.value == 'admin';
 	let check2 = title.value != "";
 	
 	if(check1 && check2){

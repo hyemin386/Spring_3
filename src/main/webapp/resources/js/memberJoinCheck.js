@@ -1,10 +1,6 @@
 /**
  * 
  */
-
-
-
-	
 	let check = document.getElementsByClassName("check");
 	let all = document.getElementById("all");
 	//const -> 상수로 사용
@@ -28,8 +24,17 @@
 			all.checked = result;
 		});
 	}
-	
-		
+
+//btn눌렀을 때 모두 동의되어있으면 location 사용해 이동
+const btn = document.getElementById("btn"); 
+btn.addEventListener("clcik",function() {
+	if(all.checked){
+		location.href="./memberJoin"; //get방식
+	} else {
+		alert("약관동의는 필수입니다.")
+	}
+});
+
 /*function check() {
 	//반복문 
 	let check = document.getElementsByClassName("check");
@@ -44,7 +49,7 @@
 	
 	all.checked = result;	
 }	
-	//all.addEventListener("mouseenter",function(){
-	//	ch.checked;
-	//});*/
+	all.addEventListener("mouseenter",function(){
+	ch.checked;
+	});*/
 

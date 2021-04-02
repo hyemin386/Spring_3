@@ -38,19 +38,19 @@
 			</div>
 			<div class="form-group">
 				<label for="name">Name</label> 
-				<input type="text" class="form-control" id="name" name="name">
+				<input type="text" class="form-control etc" id="name" name="name">
 			</div>
 			<div class="form-group">
 				<label for="phone">Phone</label> 
-				<input type="text" class="form-control" id="phone" name="phone">
+				<input type="text" class="form-control etc" id="phone" name="phone">
 			</div>
 			<div class="form-group">
 				<label for="email">Email</label> 
-				<input type="text" class="form-control" id="email" name="email">
+				<input type="text" class="form-control etc" id="email" name="email">
 			</div>
-		<input type="button" id ="btn" value="JOIN" class="btn btn-primary">
+		<input type="submit" id ="btn" value="JOIN" class="btn btn-primary">
 		</form>
 	</div>
-<script type="text/javascript" src="../resources/js/memberJoin.js"></script>	
+<!--  <script type="text/javascript" src="../resources/js/memberJoin.js"></script>	-->
 </body>
 </html>
