@@ -1,8 +1,8 @@
-package com.iu.s3.notice;
+package com.iu.s3.board;
 
 import java.sql.Date;
 
-public class NoticeDTO {
+public class BoardDTO {
 
 	private int num;
 	private String title;

@@ -27,11 +27,11 @@
 
 //btn눌렀을 때 모두 동의되어있으면 location 사용해 이동
 const btn = document.getElementById("btn"); 
-btn.addEventListener("clcik",function() {
+btn.addEventListener("click", function(){
 	if(all.checked){
-		location.href="./memberJoin"; //get방식
-	} else {
-		alert("약관동의는 필수입니다.")
+		location.href="./memberJoin";//GET
+	}else {
+		alert("약관 동의는 필수 입니다");
 	}
 });
 

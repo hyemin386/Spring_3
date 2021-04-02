@@ -1,4 +1,4 @@
-package com.iu.s3.notice;
+package com.iu.s3.board.notice;
 
 import java.util.List;
 
@@ -6,15 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.iu.s3.board.BoardDTO;
+import com.iu.s3.board.BoardService;
 import com.iu.s3.util.Pager;
 
 @Service
-public class NoticeService {
+public class NoticeService implements BoardService {
 
 	@Autowired
 	private NoticeDAO noticeDAO;
 	
-	public List<NoticeDTO> getList(Pager pager) throws Exception {
+	public List<BoardDTO> getList(Pager pager) throws Exception {
 		int perPage=10; //한 페이지당 보여줄 글의 개수
 		int perBlock = 5; //한 블럭당 보여줄 숫자의 개수
 		
@@ -68,20 +70,28 @@ public class NoticeService {
 
 		return noticeDAO.getList(pager);
 	}
-	
-	public NoticeDTO getSelect(NoticeDTO noticeDTO) throws Exception {
-		return noticeDAO.getSelect(noticeDTO);
+
+	@Override
+	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return noticeDAO.getSelect(boardDTO);
 	}
-	
-	public int setDelete(NoticeDTO noticeDTO) throws Exception {
-		return noticeDAO.setDelete(noticeDTO);
+
+	@Override
+	public int setInsert(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return noticeDAO.setInsert(boardDTO);
 	}
-	
-	public int setUpdate(NoticeDTO noticeDTO) throws Exception {
-		return noticeDAO.setUpdate(noticeDTO);
+
+	@Override
+	public int setUpdate(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
 	}
-	
-	public int setInsert(NoticeDTO noticeDTO) throws Exception {
-		return noticeDAO.setInsert(noticeDTO);
+
+	@Override
+	public int setDelete(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

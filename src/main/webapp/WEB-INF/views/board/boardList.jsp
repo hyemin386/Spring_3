@@ -1,20 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta charset="UTF-8">
+<title>Insert title here</title>
 <c:import url="../template/bootStrap.jsp"></c:import>
-<title>Notice List</title>
 </head>
 <body>
-	<c:import url="../template/header.jsp"></c:import>
+<c:import url="../template/header.jsp"></c:import>
 
 	<div class="container">
-		<h1>Notice List</h1>
+		<h1>${board} List</h1>
 		<table class="table">
 			<thead class="thead-dark">
 				<tr>
@@ -29,7 +27,7 @@
 			<tbody>
 				<c:forEach items="${list}" var="dto">
 					<tr>
-						<td><a href="./noticeSelect?num=${dto.num}">${dto.num}</a></td>
+						<td><a href="./${board}Select?num=${dto.num}">${dto.num}</a></td>
 						<td>${dto.title}</td>
 						<td>${dto.name}</td>
 						<td>${dto.regdate}</td>
@@ -39,8 +37,8 @@
 			</tbody>
 		</table>
 	</div>
-
-	<div class="container">
+	
+	<%-- <div class="container">
 		<ul class="pagination">
 			 <c:if test="${pager.pre}">	
     <li class="page-item"><a class="page-link" href="./noticeList?curPage=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}">Previous</a></li>
@@ -70,13 +68,13 @@
 					<button class="btn btn-success" type="submit">Search</button>
 				</div>
 			</form>
-		</div>
+		</div> 
 				<c:catch>
 			<c:if test="${member.id eq 'admin'}">
-				<a href="./noticeInsert" class="btn btn-primary" role="button">Write</a>
 			</c:if>
 		</c:catch>
-	</div>
-
+	</div> --%>
+	
+				<a href="./${board}Insert" class="btn btn-primary" role="button">Write</a>
 </body>
 </html>

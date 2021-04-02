@@ -8,7 +8,9 @@
 		<typeAlias type="com.iu.s3.member.MemberDTO" alias="MemberDTO"/>
 		<typeAlias type="com.iu.s3.bankBook.BankBookDTO" alias="BankBookDTO"/>
 		<typeAlias type="com.iu.s3.account.AccountDTO" alias="AccountDTO"/>
-		<typeAlias type="com.iu.s3.notice.NoticeDTO" alias="NoticeDTO"/>
+		<typeAlias type="com.iu.s3.board.notice.NoticeDTO" alias="NoticeDTO"/>
+		<typeAlias type="com.iu.s3.board.qna.QnaDTO" alias="QnaDTO"/>
+		<typeAlias type="com.iu.s3.board.BoardDTO" alias="BoardDTO"/>
 		<typeAlias type="com.iu.s3.util.Pager" alias="Pager"/>
 		<typeAlias type="java.lang.Long" alias="Long"/>
 	</typeAliases>
