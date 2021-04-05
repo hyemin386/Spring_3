@@ -27,8 +27,8 @@ public class NoticeDAOTest extends MyAbstractTest {
 
 	//@Test
 	public void getSelectTest() throws Exception {
-		NoticeDTO noticeDTO = noticeDAO.getSelect(null);
-		assertNotNull(noticeDTO);
+		//NoticeDTO noticeDTO = noticeDAO.getSelect(null);
+		//assertNotNull(noticeDTO);
 	}
 
 	//@Test
@@ -44,7 +44,7 @@ public class NoticeDAOTest extends MyAbstractTest {
 	public void setUpdateTest() throws Exception {
 		NoticeDTO noticeDTO = new NoticeDTO();
 		noticeDTO.setNum(1);
-		noticeDTO = noticeDAO.getSelect(noticeDTO);
+		//noticeDTO = noticeDAO.getSelect(noticeDTO);
 
 		noticeDTO.setTitle("Hello");
 

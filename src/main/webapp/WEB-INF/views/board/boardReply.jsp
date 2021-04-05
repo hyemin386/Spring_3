@@ -12,8 +12,9 @@
 <c:import url="../template/header.jsp"></c:import>
 
 <div class="container">
-	<h2>${board} Insert</h2>
-		<form id="frm" action="./${board}Insert" method="post">
+	<h2>${board} Reply form</h2>
+		<form id="frm" action="./${board}Reply" method="post">
+		<input type="hidden" name="num" value="${dto.num}"> <!-- value="${param.nu}" 으로도 사용가능 -->
 			<div class="form-group">
 				<label for="name">NAME</label> 
 				<input type="text" readonly="readonly" value="${member.id}" class="form-control" id="name" name="name" >

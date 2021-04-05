@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.iu.s3.util.Pager;
 
+
 public interface BoardDAO {
 	//상수, 추상메서드를 가짐
 	//접근지정자는 무조건 public abstract

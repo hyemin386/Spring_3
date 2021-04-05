@@ -19,6 +19,10 @@
 	
 	<a href="./${board}Update?num=${dto.num}" class="btn btn-danger">Update</a>
 	<a href="./${board}Delete?num=${dto.num}" class="btn btn-info">Delete</a>
+	
+	<c:if test="${board ne 'notice'}">
+	<a href="./${board}Reply?num=${dto.num}" class="btn btn-primary">Reply</a>
+	</c:if>
 </div>
 </body>
 </html>
