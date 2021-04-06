@@ -95,9 +95,8 @@
 			
 		$(".p").click(function(){
 			let curPage = $(this).attr("title");
-			let kind = '${pager.kind}';
-			let search = '${pager.search}';
-						
+			$("#curPage").val(curPage);
+			let search = '${pager.search}';		
 			$("#frm").submit();
 			
 		/* 	$("#curPage").val(curPage);
