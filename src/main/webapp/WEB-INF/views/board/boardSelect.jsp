@@ -18,11 +18,34 @@
 	<h3>Contents: ${dto.contents}</h3>
 	
 	<a href="./${board}Update?num=${dto.num}" class="btn btn-danger">Update</a>
-	<a href="./${board}Delete?num=${dto.num}" class="btn btn-info">Delete</a>
+	<a href="#" id="del" class="btn btn-info">Delete</a>
 	
+
 	<c:if test="${board ne 'notice'}">
 	<a href="./${board}Reply?num=${dto.num}" class="btn btn-primary">Reply</a>
 	</c:if>
+	
+	<form action="./${board}Delete" id="frm" method="get">
+		<input type="hidden" name="num" value="${dto.num}">
+	</form>
 </div>
+
+<script type="text/javascript">
+	/* delete의 버튼을 입력했을 때 이벤트가 실행 */
+	const del = document.getElementById("del");
+	const frm = document.getElementById("frm");
+	
+	del.addEventListener("click", function() {
+	let result = confirm("Delete?");
+		
+		if(result){ //true라면 location 실행
+			//get method 속성 변경
+			frm.method="post"
+			//form태그 강제실행(이벤트 강제실행)
+			frm.submit();
+			//location.href="./${board}Delete?num=${dto.num}"; //delete 클릭시 경로 이동(확인클릭시)
+		}
+	});
+</script>
 </body>
 </html>

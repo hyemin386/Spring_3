@@ -66,4 +66,12 @@
 	<insert id="setReply" parameterType="QnaDTO">
 		insert into qna values(qna_seq.nextval, #{title}, #{name}, #{contents}, sysdate, 0, #{ref}, #{step}, #{depth})
 	</insert>
+	
+	<delete id="setDelete" parameterType="BoardDTO">
+		delete from qna where num=#{num}
+	</delete>
+	
+	<update id="setUpdate" parameterType="BoardDTO">
+		update qna set title=#{title}, contents=#{contents} where num=#{num}
+	</update>
 </mapper>

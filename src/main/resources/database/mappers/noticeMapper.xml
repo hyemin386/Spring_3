@@ -55,15 +55,12 @@
 		select * from notice where num=#{num}
 	</select>
 
-	<delete id="setDelete" parameterType="NoticeDTO">
-		delete from notice where
-		num=#{num}
+	<delete id="setDelete" parameterType="BoardDTO">
+		delete from notice where num=#{num}
 	</delete>
 
-	<update id="setUpdate" parameterType="NoticeDTO">
-		update notice set
-		title=#{title}, name=#{name}, contents=#{contents},
-		regdate=#{regdate}, hit=#{hit}
+	<update id="setUpdate" parameterType="BoardDTO">
+		update notice set title=#{title}, contents=#{contents} where num=#{num}
 	</update>
 
 	<insert id="setInsert" parameterType="BoardDTO">
