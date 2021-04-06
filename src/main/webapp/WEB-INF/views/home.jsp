@@ -17,30 +17,40 @@
 	<!-- 내부주소 작성 -->
 	<c:import url="./template/header.jsp"></c:import>
 
-	<button onclick="go()">BUTTON</button>
-	<button id="btn">CLICK</button>
-	<button id="btn">CLICK2</button>
+	<button class="b">BUTTON</button>
+	<button id="btn" class="b">CLICK</button>
+	<button id="btn2" class="b">CLICK2</button>
+	<h1 id="t">version 3</h1>
+	<div id="result"></div>
+	
+	<select id="mon">
+		
+	</select>
 	
 	<script type="text/javascript">
-	let btn = document.getElementById("btn");
-	let btn2 = document.getElementById("btn2");
+		/* let btn2 = document.getElementById("btn2");
 	
-	btn2.addEventListener("click", function()){
-		alert("btn2");
-		go();
-	}
-	
-	btn.onclick = go;
+		btn2.addEventListener("click", function(){
+			alert("btn2");
+		});
 		
-	function go() {
-		alert("hello");
-		go();
-	}
-	
-	/*btn.onclick = function() {
-		go();
-	}*/
-	
+		//jquery
+		$("#btn").click(function(){
+			alert("jquery");
+		});	 
+		
+		$(".b").click(function(){
+			alert(this);
+		});*/
+		$("#btn2").click(function(){
+			$("#result").append('<a href="#">Go</a>');
+		});
+		
+		$("#btn").click(function(){
+			for(let i=1;i<13;i++){
+				$("#mon").append("<option>"+i+"</option>");
+			}
+		});
 	</script>
 </body>
 </html>

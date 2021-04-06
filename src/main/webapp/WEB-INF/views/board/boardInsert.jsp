@@ -16,23 +16,23 @@
 		<form id="frm" action="./${board}Insert" method="post">
 			<div class="form-group">
 				<label for="name">NAME</label> 
-				<input type="text" readonly="readonly" value="${member.id}" class="form-control" id="name" name="name" >
+				<input type="text" readonly="readonly" value="${member.id}" class="form-control myCheck" id="name" name="name" >
 			</div>
 			<div class="form-group">
 				<label for="title">TITLE</label> 
-				<input type="text" class="form-control" id="title" name="title">
+				<input type="text" class="form-control myCheck" id="title" name="title">
 			</div>
 			<div class="form-group">
 				<label for="contents">CONTENTS</label> 
-				 <textarea class="form-control" rows="5" id="contents" name="contents"></textarea>
+				 <textarea class="form-control myCheck" rows="5" id="contents" name="contents"></textarea>
 	
 			</div>
 		
-			<!-- <button type="submit" class="btn btn-primary" onclick="insertCheck()">Insert</button> -->
+<!-- <button type="submit" class="btn btn-primary" onclick="insertCheck()">Insert</button> -->
 			
-			<input type="submit" id="btn" value="WRITE" class="btn btn-primary" >
+			<input type="button" id="btn" value="WRITE" class="btn btn-primary" >
 		</form>
 	</div>
-<!-- <script type="text/javascript" src="../resources/js/noticeInsert.js"></script>	 -->
+<script type="text/javascript" src="../resources/jquery/boardInsert.js"></script>
 </body>
 </html>
