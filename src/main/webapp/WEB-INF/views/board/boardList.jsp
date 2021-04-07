@@ -64,7 +64,7 @@
 			<form id="frm" action="${board}List" class="form-inline">
 			<input type="hidden" name="curPage" value="1" id="curPage">
 				<div class="input-group-prepend">
-					<select class="form-control" name ="kind" id="kind">
+					<select class="form-control" name ="kind" id="kind"> <!-- select에는 value 속성이없음 -->
 						<option class="sel">Title</option>
 						<option class="sel">Contents</option>
 						<option class="sel">Name</option>

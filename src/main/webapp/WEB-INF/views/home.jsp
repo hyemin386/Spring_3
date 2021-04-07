@@ -11,7 +11,21 @@
 <link rel="styleshhet" href="./resources/css/test.css">
 
 <title>Home!</title>
-
+<style type="text/css">
+	#d1{
+		width: 200px;
+		height: 200px;
+		background-color: red;
+		overflow: hidden;
+	}
+	
+	#d2{
+		width: 50px;
+		height: 50px;
+		background-color: yellow;
+		margin: 75px auto;
+	}
+</style>
 </head>
 <body>
 	<!-- 내부주소 작성 -->
@@ -26,6 +40,10 @@
 	<select id="mon">
 		
 	</select>
+	
+	<div id="d1">
+		<div id="d2"></div>
+	</div>
 	
 	<script type="text/javascript">
 		/* let btn2 = document.getElementById("btn2");
@@ -50,6 +68,14 @@
 			for(let i=1;i<13;i++){
 				$("#mon").append("<option>"+i+"</option>");
 			}
+		});
+		
+		$("#d1").click(function(){
+			console.log("parent");
+		});
+		
+		$("#d2").click(function(){
+			console.log("child");
 		});
 	</script>
 </body>
