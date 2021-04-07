@@ -21,7 +21,7 @@
 <c:import url="../template/header.jsp"></c:import>
 	<div class="container">
 	<h2>Member Join Page</h2>
-		<form id="frm" action="./memberJoin" method="post">
+		<form id="frm" action="./memberJoin" method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="id">ID</label> 
 				<input type="text" class="form-control" id="id" name="id" aria-describedby="idHelp"> 
@@ -48,7 +48,13 @@
 				<label for="email">Email</label> 
 				<input type="text" class="form-control etc" id="email" name="email">
 			</div>
-		<input type="submit" id ="btn" value="JOIN" class="btn btn-primary">
+			
+			<div class="form-group">
+				<label for="avatar">Avatar</label> 
+				<input type="file" class="form-control etc" id="avatar" name="avatar">
+			</div>
+			
+			<input type="submit" id ="btn" value="JOIN" class="btn btn-primary">
 		</form>
 	</div>
 <!--  <script type="text/javascript" src="../resources/js/memberJoin.js"></script>	-->
