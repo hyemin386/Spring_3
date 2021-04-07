@@ -20,4 +20,8 @@
 	<delete id="memberDelete" parameterType="MemberDTO">
 		delete member where id =#{id}	
 	</delete>
+	
+	<insert id="setFileInsert" parameterType="MemberFileDTO">
+		insert into memberFile values(FN_SEQ.nextval, #{id}, #{fileName}, #{origineName})
+	</insert>
 </mapper>
