@@ -9,8 +9,31 @@
 		insert into member values(#{id},#{pw},#{name},#{phone},#{email})
 	</insert>
 
-	<select id="memberLogin" parameterType="MemberDTO" resultType="MemberDTO">
-		select * from member where id=#{id} and pw=#{pw}
+	<select id="memberLogin" parameterType="MemberDTO" resultMap="memberLoginResult">
+		select M.*, MF.*
+		from member M left join memberFile MF on M.id = MF.id
+		where M.id=#{id} and M.pw=#{pw}
+	</select>
+	
+	<resultMap type="MemberDTO" id="memberLoginResult">
+		<id property="id" column="id" />
+		<result property="pw" column="pw"/>
+		<result property="name" column="name"/>
+		<result property="email" column="email"/>
+		<result property="phone" column="phone"/>
+		<association property="memberFileDTO" javaType="MemberFileDTO" resultMap="memberFileResult">
+
+		</association>
+	</resultMap>
+	
+	<resultMap type="MemberFileDTO" id="memberFileResult">
+			<id property="num" column="num"/>
+			<result property="fileName" column="fileName"/>
+			<result property="origineName" column="origineName"/>
+	</resultMap>
+	
+	<select id="memberLoginFile" resultType="MemberFileDTO" parameterType="MemberDTO" >
+		select * from memberFile where id=#{id}
 	</select>
 	
 	<update id="memberUpdate" parameterType="MemberDTO">

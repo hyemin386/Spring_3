@@ -23,14 +23,24 @@ public class MemberService {
 	private FileManager fileManager;
 	
 	public int memberJoin(MemberDTO memberDTO, MultipartFile avatar, HttpSession session) throws Exception {
-		fileManager.save("member", avatar, session);
+		String fileName = fileManager.save("member", avatar, session);
 		
-		return 0;
-		//return memberDAO.memberJoin(memberDTO);
+		MemberFileDTO memberFileDTO = new MemberFileDTO();
+		memberFileDTO.setId(memberDTO.getId());
+		memberFileDTO.setFileName(fileName);
+		memberFileDTO.setOrigineName(avatar.getOriginalFilename());
+		
+		int result = memberDAO.memberJoin(memberDTO);
+		result = memberDAO.setFileInsert(memberFileDTO);
+		
+		return result;
 	}
 	
 	public MemberDTO memberLogin (MemberDTO memberDTO) throws Exception {
-		return memberDAO.memberLogin(memberDTO);
+		memberDTO = memberDAO.memberLogin(memberDTO);
+		/*MemberFileDTO memberFileDTO = memberDAO.memberLoginFile(memberDTO);
+		memberDTO.setMemberFileDTO(memberFileDTO);*/
+		return memberDTO;
 	}
 	
 	//delete, update, insert 리턴은 int

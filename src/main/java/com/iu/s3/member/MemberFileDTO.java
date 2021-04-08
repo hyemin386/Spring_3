@@ -6,6 +6,7 @@ public class MemberFileDTO {
 	private String id;
 	private String fileName;
 	private String OrigineName;
+	
 	public int getNum() {
 		return num;
 	}

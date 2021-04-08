@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Component
 public class FileManager {
 	
-	public void save(String name, MultipartFile multipartFile, HttpSession session) throws Exception {
+	public String save(String name, MultipartFile multipartFile, HttpSession session) throws Exception {
 		//1. 경로 설정 
 		String path = session.getServletContext().getRealPath("resources/upload/"+name);
 		System.out.println(path);
@@ -30,13 +30,17 @@ public class FileManager {
 		long time = ca.getTimeInMillis();
 		fileName = time+"_"+multipartFile.getOriginalFilename();
 		 */	
+		// 두번째 방법
 		fileName = UUID.randomUUID().toString()+"_"+multipartFile.getOriginalFilename();
 		
 		//3. HDD에 저장 (copy, transferTo)
 		file = new File(file, fileName);
 		/* 첫번째 방법
 		FileCopyUtils.copy(multipartFile.getBytes(), file);*/
+		// 두번째 방법
 		multipartFile.transferTo(file);
+		
+		return fileName;
 	}
 	
 	
