@@ -52,7 +52,14 @@
 	</select>
 	
 	<insert id="setInsert" parameterType="BoardDTO">
-		insert into qna values(qna_seq.nextval, #{title}, #{name}, #{contents}, sysdate, 0, qna_seq.currval, 0,0)
+		<selectKey keyProperty="num" resultType="java.lang.Long" order="BEFORE">
+			select qna_seq.nextval from dual
+		</selectKey>
+		insert into qna values(#{num}, #{title}, #{name}, #{contents}, sysdate, 0, #{num}, 0,0)
+	</insert>
+	
+	<insert id="setFileInsert" parameterType="BoardFileDTO">
+		insert into noticeFiles values(file_seq.nextval, #{num}, #{fileName}, #{origineName})
 	</insert>
 	
 	<update id="setHitUpdate" parameterType="BoardDTO">

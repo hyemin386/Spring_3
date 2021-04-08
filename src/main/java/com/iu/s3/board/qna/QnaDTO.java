@@ -1,12 +1,24 @@
 package com.iu.s3.board.qna;
 
+import java.util.List;
+
 import com.iu.s3.board.BoardDTO;
+import com.iu.s3.board.BoardFileDTO;
 
 public class QnaDTO extends BoardDTO {
 	
 	private long ref;
 	private long step;
 	private long depth;
+	
+	private List<BoardFileDTO> boardFiles;
+	
+	public List<BoardFileDTO> getBoardFiles() {
+		return boardFiles;
+	}
+	public void setBoardFiles(List<BoardFileDTO> boardFiles) {
+		this.boardFiles = boardFiles;
+	}
 	
 	public long getRef() {
 		return ref;
