@@ -65,7 +65,7 @@ public class QnaService implements BoardService {
 
 	@Override
 	public int setInsert(BoardDTO boardDTO, MultipartFile [] files) throws Exception {
-int result = qnaDAO.setInsert(boardDTO);
+		int result = qnaDAO.setInsert(boardDTO);
 		
 		for(MultipartFile mf : files) {
 			BoardFileDTO boardFileDTO = new BoardFileDTO();
