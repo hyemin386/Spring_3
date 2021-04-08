@@ -44,7 +44,9 @@ public class MemberService {
 	}
 	
 	//delete, update, insert 리턴은 int
-	public int memberDelete (MemberDTO memberDTO) throws Exception { 
+	public int memberDelete(MemberDTO memberDTO, HttpSession session)throws Exception{
+		MemberFileDTO memberFileDTO = memberDAO.getMemberFile(memberDTO);	
+		boolean check = fileManager.delete("member", memberFileDTO.getFileName(), session);
 		return memberDAO.memberDelete(memberDTO);
 	}
 	

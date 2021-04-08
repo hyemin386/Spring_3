@@ -77,7 +77,7 @@ public class MemberController {
 	@RequestMapping("memberDelete")
 	public String memberDelete(HttpSession session) throws Exception {
 		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
-		int result = memberService.memberDelete(memberDTO);
+		int result = memberService.memberDelete(memberDTO, session);
 		session.invalidate(); //session 삭제하면서 로그아웃까지 진행
 		return "redirect:../";
 	}

@@ -36,6 +36,10 @@
 		select * from memberFile where id=#{id}
 	</select>
 	
+	<select id="getMemberFile" parameterType="MemberDTO" resultType="MemberFileDTO">
+		select fileName from memberFile where id=#{id}
+	</select>
+	
 	<update id="memberUpdate" parameterType="MemberDTO">
 		update member set pw=#{pw}, name=#{name}, phone=#{phone}, email=#{email} where id=#{id}
 	</update>
