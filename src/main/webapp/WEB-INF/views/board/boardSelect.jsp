@@ -17,6 +17,12 @@
 	<h3>Name: ${dto.name}</h3>
 	<h3>Contents: ${dto.contents}</h3>
 	
+	<div>
+	<c:forEach items="${dto.noticeFiles}" var="file">
+		<a href="../resources/upload/${board}/${file.fileName}">${file.origineName}</a>
+	</c:forEach>
+	</div>
+	
 	<a href="./${board}Update?num=${dto.num}" class="btn btn-danger">Update</a>
 	<a href="#" id="del" class="btn btn-info">Delete</a>
 	

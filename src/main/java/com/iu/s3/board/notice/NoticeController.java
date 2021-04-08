@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.s3.board.BoardDTO;
@@ -30,6 +31,23 @@ public class NoticeController {
 		mv.setViewName("board/boardInsert");
 		mv.addObject("board", "notice");
 		return mv;
+	}
+	
+	@RequestMapping(value = "noticeInsert", method = RequestMethod.POST)
+	public String setInsert(BoardDTO boardDTO, Model model, MultipartFile [] files)throws Exception{
+		
+		int result = noticeService.setInsert(boardDTO, files);
+		
+		
+		String message="등록 실패";
+		
+		if(result>0) {
+			message="등록 성공";
+		}
+		model.addAttribute("msg", message);
+		model.addAttribute("path", "./noticeList");
+		
+		return "common/commonResult";
 	}
 	
 	@RequestMapping("noticeList")
@@ -106,20 +124,6 @@ public class NoticeController {
 		return mv;
 	}
 	
-	
-	@RequestMapping(value = "noticeInsert" , method = RequestMethod.POST)
-	public String setInsert(BoardDTO boardDTO, Model model) throws Exception {
-		int result = noticeService.setInsert(boardDTO); //notice로 받아도 상관은 없음!
-		
-		String message ="등록실패";
-		
-		if(result>0) {
-			message="등록성공";
-		}
-		model.addAttribute("msg",message);
-		model.addAttribute("path", "./noticeList");
-		return "common/commonResult";
-	}
 	
 	@GetMapping("noticeSelect")
 	public ModelAndView getSelect(BoardDTO boardDTO) throws Exception {

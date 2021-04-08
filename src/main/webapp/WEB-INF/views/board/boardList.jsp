@@ -36,7 +36,7 @@
 						${dto.title}
 						</a></td>
 						<td>${dto.name}</td>
-						<td>${dto.regdate}</td>
+						<td>${dto.regDate}</td>
 						<td>${dto.hit}</td>
 					</tr>
 				</c:forEach>
