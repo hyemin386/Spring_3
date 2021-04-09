@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/comments/**")
@@ -17,9 +18,12 @@ public class CommentsController {
 	private CommentsService commentsService;
 	
 	@PostMapping("commentsInsert")
-	public void setInsert(CommentsDTO commentsDTO) throws Exception {		
-		System.out.println(commentsDTO.getName());
-		System.out.println(commentsDTO.getContents());
+	public ModelAndView setInsert(CommentsDTO commentsDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = commentsService.setInsert(commentsDTO);
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
 	}
 	
 	@GetMapping("commentsList")

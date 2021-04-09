@@ -17,4 +17,8 @@ public class CommentsDAO {
 	public List<CommentsDTO> getList(CommentsDTO commentsDTO) throws Exception {
 		return sqlSession.selectList(NAMESPACE+"getList", commentsDTO);
 	}
+	
+	public int setInsert(CommentsDTO commentsDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE+"setInsert", commentsDTO);
+	}
 }
