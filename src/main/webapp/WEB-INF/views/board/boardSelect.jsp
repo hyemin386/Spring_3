@@ -23,6 +23,23 @@
 	</c:forEach>
 	</div>
 	
+	<!-- 댓글 리스트 -->
+	<div id="comments" title="${dto.num}">
+		
+	</div>
+	
+	<div class="form-group">
+  		<label for="usr">Name:</label>
+  		<input type="text" class="form-control" id="name">
+	</div>
+
+	<div class="form-group">
+  		<label for="comment">Comment:</label>
+  		<textarea class="form-control" rows="5" id="comments"></textarea>
+	</div>
+	
+	<button type="button" class="btn btn-success" id="write">Write</button>
+	
 	<a href="./${board}Update?num=${dto.num}" class="btn btn-danger">Update</a>
 	<a href="#" id="del" class="btn btn-info">Delete</a>
 	
@@ -36,6 +53,7 @@
 	</form>
 </div>
 
+<script type="text/javascript" src="../resources/jquery/comments.js"></script> 
 <script type="text/javascript">
 	/* delete의 버튼을 입력했을 때 이벤트가 실행 */
 	const del = document.getElementById("del");
@@ -52,6 +70,7 @@
 			//location.href="./${board}Delete?num=${dto.num}"; //delete 클릭시 경로 이동(확인클릭시)
 		}
 	});
+	
 </script>
 </body>
 </html>
