@@ -45,38 +45,13 @@
 		<div id="d2"></div>
 	</div>
 	
-	<script type="text/javascript">
-		/* let btn2 = document.getElementById("btn2");
-	
-		btn2.addEventListener("click", function(){
-			alert("btn2");
+<script type="text/javascript">
+	$("#btn2").click(function(){
+		$.get("./test?num=3", function(data){
+			console.log(data);
+			$("#d2").html(data);
 		});
-		
-		//jquery
-		$("#btn").click(function(){
-			alert("jquery");
-		});	 
-		
-		$(".b").click(function(){
-			alert(this);
-		});*/
-		$("#btn2").click(function(){
-			$("#result").append('<a href="#">Go</a>');
-		});
-		
-		$("#btn").click(function(){
-			for(let i=1;i<13;i++){
-				$("#mon").append("<option>"+i+"</option>");
-			}
-		});
-		
-		$("#d1").click(function(){
-			console.log("parent");
-		});
-		
-		$("#d2").click(function(){
-			console.log("child");
-		});
-	</script>
+	});
+</script>
 </body>
 </html>
