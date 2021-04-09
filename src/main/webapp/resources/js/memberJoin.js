@@ -79,6 +79,23 @@ btn.addEventListener("click",function(){
 	}
 });
 
+//id 중복확인
+$("#id").blur(function(){
+	//사용자가 입력한 데이터 띄워보기
+	let id=$("#id").val();
+	//alert(id);
+	//Ajax로 보내기
+	$.get("./memberIdCheck?id="+id, function(result){
+		result = result.trim();
+		let str = "사용가능한 ID 입니다";
+		
+		if(result=='0'){
+			str ="중복 ID 입니다";
+		}
+		
+		$("#idCheckResult").html(str);
+	});
+});
 
 
 
