@@ -1,7 +1,7 @@
 /**
  * 
  */
-let count = 0;
+let count=$("#files").attr("title");
 
 $("#add").click(function(){
 	if(count<5){ //최대 5개까지만 추가

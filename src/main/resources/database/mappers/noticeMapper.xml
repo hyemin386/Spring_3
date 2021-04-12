@@ -9,6 +9,14 @@
 		insert into noticeFiles values(file_seq.nextval, #{num}, #{fileName}, #{origineName})
 	</insert>
 	
+	<delete id="setFileDelete" parameterType="BoardFileDTO">
+		delete noticeFiles where fileNum=#{fileNum}
+	</delete>
+	
+	<select id="getFileSelect" parameterType="BoardFileDTO" resultType="BoardFileDTO">
+		select * from noticeFiles where fileNum=#{fileNum}
+	</select>
+	
 	<select id="getSelect" parameterType="BoardDTO" resultMap="selectResult">
 		select N.*, NF.*
 		from notice N left join noticeFiles NF

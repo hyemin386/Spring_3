@@ -34,3 +34,25 @@ $("#write").click(function(){
 		}
 	});
 });
+
+//이벤트 위임
+$("#comments").on("click","#remove", function() {
+	const ar = []; //빈 배열
+	//반복문 돌리기
+	$(".del").each(function(){
+		let ch = $(this).prop("checked");
+		if(ch){
+			ar.push($(this).val());
+		}
+	});
+	
+	$.ajax({
+		type: "POST",
+		url: "../comments/commentsDelete",
+		traditional : true, //배열을 전송
+		data: {commentNum: ar},
+		success: function(data){
+			alert(data);
+		}
+	});
+});

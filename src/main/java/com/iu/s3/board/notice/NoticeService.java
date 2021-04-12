@@ -70,8 +70,19 @@ public class NoticeService implements BoardService {
 	}
 
 	@Override
-	public int setUpdate(BoardDTO boardDTO) throws Exception {
-		// TODO Auto-generated method stub
+	public int setUpdate(BoardDTO boardDTO, MultipartFile [] files) throws Exception {
+		//1. 파일들을 HDD에 저장
+		for(MultipartFile multipartFile : files) {
+			BoardFileDTO boardFileDTO = new BoardFileDTO(); //정보저장
+			//HDD에 저장
+			String fileName = fileManager.save("notice", multipartFile, session);
+			boardFileDTO.setFileName(fileName);
+			boardFileDTO.setOrigineName(multipartFile.getOriginalFilename());
+			boardFileDTO.setNum(boardDTO.getNum());
+			//2. DB에 insert
+			noticeDAO.setFileInsert(boardFileDTO);
+		}
+		//3. 글 수정		
 		return noticeDAO.setUpdate(boardDTO);
 	}
 
@@ -79,5 +90,18 @@ public class NoticeService implements BoardService {
 	public int setDelete(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
 		return noticeDAO.setDelete(boardDTO);
+	}
+	
+	public int setFileDelete(BoardFileDTO boardFileDTO) throws Exception {
+		//1. 조회
+		boardFileDTO= noticeDAO.getFileSelect(boardFileDTO);
+		//2. 테이블 삭제
+		int result = noticeDAO.setFileDelete(boardFileDTO);
+		//3. HDD 삭제
+		if(result>0) {
+			fileManager.delete("notice", boardFileDTO.getFileName(), session);
+		}
+		
+		return result;
 	}
 }

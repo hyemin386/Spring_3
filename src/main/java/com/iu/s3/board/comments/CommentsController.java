@@ -17,6 +17,13 @@ public class CommentsController {
 	@Autowired
 	private CommentsService commentsService;
 	
+	@PostMapping("commentsDelete")
+	public void commentsDelete(int [] commentNum) throws Exception {
+		System.out.println("start");
+
+		System.out.println("finish");
+	}
+	
 	@PostMapping("commentsInsert")
 	public ModelAndView setInsert(CommentsDTO commentsDTO)throws Exception{
 		ModelAndView mv = new ModelAndView();
