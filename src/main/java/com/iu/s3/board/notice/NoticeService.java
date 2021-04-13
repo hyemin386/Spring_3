@@ -28,6 +28,17 @@ public class NoticeService implements BoardService {
 	@Autowired
 	private HttpSession session;
 	
+	public boolean setSummerFileDelete(String FileName) throws Exception {
+		boolean result = fileManager.delete("notice", FileName, session);
+		return result;
+	}
+	
+	public String setSummerFileUpload(MultipartFile file) throws Exception {
+		//첨부파일이 아니므로 db에 저장 안함!
+		String fileName = fileManager.save("notice", file, session);
+		return fileName;
+	}
+	
 	public List<BoardDTO> getList(Pager pager) throws Exception {
 		//startRow, lastRow 계산하는 메서드 호출 
 		pager.makeRow();

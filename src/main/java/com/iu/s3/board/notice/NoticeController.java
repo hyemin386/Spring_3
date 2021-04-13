@@ -26,6 +26,28 @@ public class NoticeController {
 	@Autowired
 	private NoticeService noticeService;
 	
+	@PostMapping("summerFileDelete")
+	public ModelAndView setSummerFileDelete(String fileName) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		boolean result = noticeService.setSummerFileDelete(fileName);
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+	}
+	
+	@PostMapping("summerFileUpload")
+	public ModelAndView setSummerFileUpload (MultipartFile file) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		System.out.println("summerFile Upload");
+		System.out.println(file.getOriginalFilename());
+		String fileName = noticeService.setSummerFileUpload(file); //HDD에 파일 저장
+		fileName ="../resources/upload/notice/"+fileName;
+		mv.addObject("result", fileName);
+		mv.setViewName("common/ajaxResult");
+		
+		return mv;
+	}
+	
 	@GetMapping("FileDelete")
 	public ModelAndView setFileDelete(BoardFileDTO boardFileDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();

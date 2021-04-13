@@ -5,6 +5,9 @@
 <html>
 <head>
 <c:import url="../template/bootStrap.jsp"></c:import>
+<!-- summerNote 사용 -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 <style type="text/css">
 	#sample{
 		 display: none;
@@ -53,39 +56,11 @@
 					id="inputGroupFileAddon04" value="Delete">
 			</div>
 		</div>
-
-
 	</div>
 
-<!-- <script type="text/javascript" src="../resources/jquery/boardInsert.js"></script> -->
+<script type="text/javascript" src="../resources/jquery/boardInsert.js"></script>
 <script type="text/javascript" src="../resources/jquery/fileAdd.js"></script>
+<script type="text/javascript" src="../resources/jquery/summerFile.js"></script>
 
-<script type="text/javascript">
-$("#btn").click(function(){
-	alert("click");
-/*	let writer = $("#writer").val() != "";
-	let title = $("#title").val().length != 0;
-	let contents = $("#contents").val().length !=0 ;*/
-	
-	let result = true;
-	
-	$(".myCheck").each(function(s1, s2){
-		console.log(s1);
-		console.log($(s2).val());
-		console.log($(this).val());
-		if($(this).val()==""){
-			result = false;
-		}
-		
-	});
-		
-	if(result){
-		$("#frm").submit();
-	}else {
-		alert("필수 요소를 입력하세요");
-	}
-	
-});
-</script>
 </body>
 </html>
